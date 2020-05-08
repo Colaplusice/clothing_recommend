@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block right-panel-content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>服装名</th>
+            {#            <th></th>#}
+            <th>标签</th>
+            <th>查看</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in clothing %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td> {% if i.tags %}
+                    {{ i.tags }}
+                {% else %}
+                    无
+                {% endif %}
+                </td>
+                <td><a href="{% url 'clothing' i.id %}">查看</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
